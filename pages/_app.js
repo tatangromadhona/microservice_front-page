@@ -1,4 +1,12 @@
-import '../styles/globals.css'
+import Router from 'next/router'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+import '../tailwindcss/style.css'
+
+NProgress.configure({ showSpinner: false })
+Router.events.on("routeChangeStart", () => NProgress.start);
+Router.events.on("routeChangeDone", () => NProgress.done);
+Router.events.on("routeChangeError", () => NProgress.done);
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
